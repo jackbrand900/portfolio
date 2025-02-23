@@ -1,0 +1,80 @@
+.header-box {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px;
+    text-align: justify;
+    width: 92%;
+}
+
+.top-line {
+    margin-bottom: -19px;
+    font-size: 42px;
+}
+
+.bottom-line {
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.header-text {
+    font-family: monospace;
+}
+
+.line {
+    display: block;
+    font-family: monospace;
+}
+
+/* Apply overflow and wrapping to the animated element */
+.typing {
+    display: inline-block;
+    overflow: hidden;      /* Ensure text is clipped */
+    white-space: nowrap;   /* Keep text on one line */
+    border-right: 2px solid black;  /* The caret */
+    width: 0;              /* Start with no visible text */
+}
+
+/* First line animation */
+.line1 .typing {
+    animation: typing1 2s steps(28, end) forwards, 
+               blink-caret 0.75s step-end infinite,
+               stop-caret 0.1s forwards 2s;
+}
+
+/* Hide the entire second line until the first is finished */
+.line2 {
+    opacity: 0;
+    animation: revealLine 0.1s forwards 2s;
+}
+
+/* Second line animation starts after a 3s delay */
+.line2 .typing {
+    animation: typing2 2s steps(48, end) 2s forwards, 
+               blink-caret 0.75s step-end 2s infinite,
+               stop-caret 0.1s forwards 4s;
+}
+
+@keyframes typing1 {
+    from { width: 0; }
+    to { width: 28ch; }  /* 28 characters for "Hello! My name is Jack Brand" */
+}
+
+@keyframes typing2 {
+    from { width: 0; }
+    to { width: 48ch; }  /* Adjust based on your text length */
+}
+
+@keyframes revealLine {
+    to { opacity: 1; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+@keyframes stop-caret {
+    to { border-right-color: transparent; }
+}
