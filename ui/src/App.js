@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Education from './Education';
 import Header from './Header';
+import Skills from './Skills';
 
 function CreateBookComponent({message, onBookCreated}) {
   const [title, setTitle] = useState('');
@@ -157,6 +158,7 @@ function App() {
       <header className="App-header">
         <Header />
         <Education />
+        <Skills />
         <CreateBookComponent onBookCreated={handleBookCreated} message={message}/>
         <BooksComponent books={books} loading={loading} error={error} onDelete={handleBookDeleted}/>
       </header>

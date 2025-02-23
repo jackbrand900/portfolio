@@ -12,6 +12,14 @@ class EducationListCreateAPIView(generics.ListCreateAPIView):
     queryset = Education.objects.all()
     serializer_class = EducationSerializer
 
+class SkillRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Skill.objects.all()
+    serializer_class = SkillSerializer
+
+class SkillListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Skill.objects.all()
+    serializer_class = SkillSerializer
+
 class BookListCreateAPIView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
